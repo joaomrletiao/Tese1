@@ -1,0 +1,2 @@
+Tamanho da Janela:100
+[R, M, H, H, M, H, H] 15/2/2013 - 10/7/2013 5.0 BearFlag

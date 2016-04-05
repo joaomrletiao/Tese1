@@ -1,0 +1,3 @@
+Tamanho da Janela:100
+[R, R, M, C, C, M, R] 20/12/2005 - 15/5/2006 5.0 Cup
+[R, M, H, M, R, C, C] 30/4/2012 - 19/9/2012 8.660254037844387 DoubleBottom

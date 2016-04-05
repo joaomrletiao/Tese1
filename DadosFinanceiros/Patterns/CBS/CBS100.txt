@@ -1,0 +1,4 @@
+Tamanho da Janela:100
+[R, M, H, H, M, H, H] 15/2/2007 - 10/7/2007 5.0 BearFlag
+[R, M, H, M, R, M, C] 21/4/2010 - 10/9/2010 8.660254037844387 DoubleBottom
+[W, R, H, R, W, M, C] 28/6/2011 - 16/11/2011 8.660254037844387 DoubleBottom

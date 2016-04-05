@@ -1,0 +1,2 @@
+Tamanho da Janela:100
+[R, R, M, C, C, C, R] 15/11/2011 - 10/4/2012 5.0 Cup

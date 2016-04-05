@@ -1,0 +1,5 @@
+Tamanho da Janela:100
+[M, R, R, R, M, H, H] 8/3/2005 - 28/7/2005 8.660254037844387 BullFlag
+[R, R, H, M, R, M, H] 16/5/2006 - 5/10/2006 8.660254037844387 DoubleBottom
+[R, R, H, M, R, C, C] 17/12/2007 - 9/5/2008 7.0710678118654755 DoubleBottom
+[R, M, H, M, R, H, C] 20/9/2012 - 14/2/2013 7.0710678118654755 DoubleBottom

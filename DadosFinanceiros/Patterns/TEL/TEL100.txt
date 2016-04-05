@@ -1,0 +1,2 @@
+Tamanho da Janela:100
+[M, R, R, R, M, H, H] 19/3/2012 - 8/8/2012 8.660254037844387 BullFlag

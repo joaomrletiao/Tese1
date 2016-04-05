@@ -1,0 +1,27 @@
+Size:53, Fitness value:-1.0, Alleles:[IntegerGene(0,6)=2, IntegerGene(5,20)=16, IntegerGene(2,10)=9, IntegerGene(11,30)=22, IntegerGene(20,100)=49, DoubleGene(0.0,210.0)=197.68856247364505, IntegerGene(5,12)=12, IntegerGene(1,5)=5, StringGene=H, StringGene=W, StringGene=H, StringGene=M, StringGene=C, StringGene=W, StringGene=R, StringGene=W, StringGene=C, StringGene=W, StringGene=M, StringGene=H, StringGene=C, StringGene=C, StringGene=W, StringGene=H, StringGene=H, StringGene=H, StringGene=W, StringGene=R, StringGene=H, StringGene=C, StringGene=W, StringGene=R, StringGene=M, StringGene=M, StringGene=W, StringGene=R, StringGene=R, StringGene=C, StringGene=R, StringGene=W, StringGene=W, StringGene=H, StringGene=W, StringGene=M, StringGene=W, StringGene=H, StringGene=W, StringGene=R, StringGene=C, StringGene=W, StringGene=C, StringGene=W, StringGene=W], Application data:null
+
+Compra AN, AGN, AES, BLL
+{AN=16/3/2010}
+{AN=18.450001}
+{AN=31/12/2014}
+{31/12/2014=[60.41]}
+{AGN=16/3/2010, AN=16/3/2010}
+{AGN=40.650002, AN=18.450001}
+{AGN=31/12/2014, AN=31/12/2014}
+{31/12/2014=[60.41, 257.410004]}
+{AGN=16/3/2010, AES=16/3/2010, AN=16/3/2010}
+{AGN=40.650002, AES=11.151555, AN=18.450001}
+{AGN=31/12/2014, AES=31/12/2014, AN=31/12/2014}
+{31/12/2014=[60.41, 257.410004, 13.329601999999998]}
+{AGN=16/3/2010, AES=16/3/2010, BLL=16/3/2010, AN=16/3/2010}
+{AGN=40.650002, AES=11.151555, BLL=25.929827, AN=18.450001}
+{AGN=31/12/2014, AES=31/12/2014, BLL=31/12/2014, AN=31/12/2014}
+{31/12/2014=[60.41, 257.410004, 13.329601999999998, 67.662722]}
+
+Compra AMD 
+{AMD=21/9/2012}
+{AMD=3.6}
+{AGN=31/12/2014, AES=31/12/2014, AMD=31/12/2014, BLL=31/12/2014, AN=31/12/2014}
+{31/12/2014=[60.41, 257.410004, 13.329601999999998, 67.662722, 2.67]}
+
+401.7009430000001

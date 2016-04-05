@@ -1,0 +1,2 @@
+Tamanho da Janela:100
+[R, M, H, H, M, H, C] 3/7/2006 - 21/11/2006 7.0710678118654755 BearFlag

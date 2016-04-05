@@ -1,0 +1,4 @@
+Tamanho da Janela:40
+[R, R, H, M, R, M, H] 19/4/2012 - 14/6/2012 8.660254037844387 DoubleBottom
+[M, M, H, C, H, H, M] 7/12/2012 - 5/2/2013 8.660254037844387 BearFlag
+[R, M, H, H, H, H, M] 4/11/2014 - 31/12/2014 5.0 BearFlag

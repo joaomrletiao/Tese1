@@ -1,0 +1,2 @@
+Tamanho da Janela:100
+[R, M, H, H, M, H, H] 16/5/2006 - 5/10/2006 5.0 BearFlag

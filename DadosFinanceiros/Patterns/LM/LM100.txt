@@ -1,0 +1,2 @@
+Tamanho da Janela:100
+[R, M, H, R, R, H, C] 16/5/2006 - 5/10/2006 8.660254037844387 DoubleBottom

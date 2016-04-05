@@ -1,0 +1,2 @@
+Tamanho da Janela:100
+[R, R, M, C, C, H, R] 26/7/2007 - 14/12/2007 0.0 Cup

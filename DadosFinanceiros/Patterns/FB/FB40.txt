@@ -1,0 +1,3 @@
+Tamanho da Janela:40
+[R, W, R, H, C, H, R] 18/5/2012 - 16/7/2012 8.660254037844387 Cup
+[R, R, H, M, R, H, C] 24/10/2013 - 19/12/2013 5.0 DoubleBottom

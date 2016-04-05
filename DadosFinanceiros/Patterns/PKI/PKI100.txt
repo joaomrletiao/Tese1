@@ -1,0 +1,3 @@
+Tamanho da Janela:100
+[R, W, R, R, M, H, H] 8/3/2005 - 28/7/2005 8.660254037844387 BullFlag
+[R, M, H, H, M, H, H] 30/4/2012 - 19/9/2012 5.0 BearFlag

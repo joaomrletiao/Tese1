@@ -1,0 +1,2 @@
+Tamanho da Janela:60
+[R, R, M, H, H, H, H] 12/2/2013 - 8/5/2013 7.0710678118654755 BearFlag

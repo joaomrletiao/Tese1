@@ -1,0 +1,6 @@
+Tamanho da Janela:100
+[R, R, H, C, C, C, M] 8/3/2005 - 28/7/2005 8.660254037844387 Cup
+[W, R, H, M, R, C, C] 16/5/2006 - 5/10/2006 5.0 DoubleBottom
+[R, R, H, H, R, H, C] 6/5/2010 - 27/9/2010 7.0710678118654755 DoubleBottom
+[R, R, H, M, R, H, C] 30/4/2012 - 19/9/2012 5.0 DoubleBottom
+[R, M, H, H, H, H, M] 20/9/2012 - 14/2/2013 5.0 BearFlag
