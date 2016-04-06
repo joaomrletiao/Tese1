@@ -1,4 +1,4 @@
-# Tese1
+Tese1
 
 This project is a new pattern discovery approach!
 
