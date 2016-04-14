@@ -49,14 +49,14 @@ import java.*;
 	return bestSolution;
 }
 
-public static void makeProfit(ArrayList<GetDados> accao)
+public static void makeProfit(ArrayList<GetDados> accao,int pop, int generations)
       throws Exception {
    
     Configuration conf = new DefaultConfiguration();
     conf.setPreservFittestIndividual(true);
     conf.setKeepPopulationSizeConstant(false);
     conf.addGeneticOperator(new Cooperator(conf));
-    //conf.addGeneticOperator(new MutateOperator(conf));
+    conf.addGeneticOperator(new MutateOperator(conf));
     conf.getGeneticOperators().remove(0);
     conf.getGeneticOperators().remove(0);
     System.out.println(conf.getGeneticOperators());
@@ -76,7 +76,7 @@ public static void makeProfit(ArrayList<GetDados> accao)
     conf.setSampleChromosome(sampleChromosome);
     
     //Populacao tem de ser 128
-    conf.setPopulationSize(1);
+    conf.setPopulationSize(pop);
     
     Genotype population;
 
@@ -254,7 +254,7 @@ public static void makeProfit(ArrayList<GetDados> accao)
     // is going to be, we just evolve the max number of times.
     // ---------------------------------------------------------------
     long startTime = System.currentTimeMillis();
-    for (int i = 0; i < MAX_ALLOWED_EVOLUTIONS; i++) {
+    for (int i = 0; i < generations; i++) {
     	//System.out.println(i);
       if (!uniqueChromosomes(population.getPopulation())) {
         throw new RuntimeException("Invalid state in generation "+i);
@@ -402,37 +402,31 @@ public static void makeProfit(ArrayList<GetDados> accao)
   public static void main(String[] args)
       throws Exception {
 	  
-	    FileInputStream fstream = new FileInputStream("txt/20.txt");
-        //FileInputStream fstream = new FileInputStream("txt/" + args[2] + ".txt");
+	    //FileInputStream fstream = new FileInputStream("txt/20.txt");
+        FileInputStream fstream = new FileInputStream("txt/" + args[2]);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 		String strLine;
 		//Read File Line By Line
-//		String[] parts = args[0].split("/");
-//		String anoinicio = parts[0]; 
-//		String mesinicio = parts[1]; 
-//		String diainicio = parts[2];
-//		String[] parts1 = args[1].split("/");
-//		String anofim = parts1[0]; 
-//		String mesfim = parts1[1]; 
-//		String diafim = parts1[2];
+		String[] parts = args[0].split("/");
+		String anoinicio = parts[0]; 
+		String mesinicio = parts[1]; 
+		String diainicio = parts[2];
+		String[] parts1 = args[1].split("/");
+		String anofim = parts1[0]; 
+		String mesfim = parts1[1]; 
+		String diafim = parts1[2];
 		while ((strLine = br.readLine()) != null)   {
-			GregorianCalendar start = new GregorianCalendar(2013,0,1);
-			GregorianCalendar end = new GregorianCalendar(2014,0,1);
-			//GregorianCalendar start = new GregorianCalendar(Integer.parseInt(anoinicio),Integer.parseInt(mesinicio),Integer.parseInt(diainicio));
-			//GregorianCalendar end = new GregorianCalendar(Integer.parseInt(anofim),Integer.parseInt(mesfim),Integer.parseInt(diafim));
+//			GregorianCalendar start = new GregorianCalendar(2013,0,1);
+//			GregorianCalendar end = new GregorianCalendar(2014,0,1);
+			GregorianCalendar start = new GregorianCalendar(Integer.parseInt(anoinicio),Integer.parseInt(mesinicio),Integer.parseInt(diainicio));
+			GregorianCalendar end = new GregorianCalendar(Integer.parseInt(anofim),Integer.parseInt(mesfim),Integer.parseInt(diafim));
 			GetDados novosdados = new GetDados(strLine,start,end);
 			novosdados.getData(strLine);
-			if(novosdados.getAdjclosesReverse().size() != 755){
-				System.out.println(strLine);
-			//	System.out.println(novosdados.getDates());
-			}
-//			System.out.println(strLine);
-//			System.out.println(novosdados.getAdjclosesReverse().size());
-//			System.out.println(novosdados.getDates());
 			Dados.add(novosdados);
 		}	
 		br.close();
-		makeProfit(Dados);
+		makeProfit(Dados, Integer.parseInt(args[3]), Integer.parseInt(args[4]));
+		//makeProfit(Dados,128,50);
 		/*
 		FileInputStream fileIn = new FileInputStream("./Dados.ser");
         ObjectInputStream in = new ObjectInputStream(fileIn);

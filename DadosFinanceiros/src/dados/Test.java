@@ -47,22 +47,42 @@ public class Test {
 //			GetDados novosdados1 = new GetDados("AAPL",start1,end1);
 			//novosdados1.getData1("AAPL");
 			//testar com pequenos exemplos
-			FileInputStream fstream = new FileInputStream("txt/20.txt");
+			FileInputStream fstream = new FileInputStream("txt/All.txt");
 			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 			String strLine;
+			ArrayList<String> primeiro1 = new ArrayList<String>();
+			ArrayList<String> primeiro = new ArrayList<String>();
 			//Read File Line By Line
 			while ((strLine = br.readLine()) != null)   {
-				System.out.println(strLine);
-				GregorianCalendar start = new GregorianCalendar(2014,2,11);
-				GregorianCalendar end = new GregorianCalendar(2014,4,14);
-				GetDados novosdados = new GetDados(strLine,start,end);
-				novosdados.getData(strLine);
-				Dados.add(novosdados);
-//				ArrayList<String> primeiro = Dados.get(0).getDates();
-//				primeiro.removeAll(novosdados.getDates());
-//				System.out.println(primeiro);
+				//System.out.println(strLine);
+//				GregorianCalendar start = new GregorianCalendar(2014,0,3);
+//				GregorianCalendar end = new GregorianCalendar(2014,1,10);
+//				GetDados novosdados = new GetDados(strLine,start,end);
+//				novosdados.getData(strLine);
+//				Dados.add(novosdados);
+		
+				primeiro1.add(strLine);
 			}	
 			br.close();
+			
+			FileInputStream fstream1 = new FileInputStream("txt/50.txt");
+			BufferedReader br1 = new BufferedReader(new InputStreamReader(fstream1));
+			String strLine1;
+			int v=1;
+			//Read File Line By Line
+			while ((strLine1 = br1.readLine()) != null)   {
+				//System.out.println(strLine1);
+				primeiro.add(strLine1);
+				v++;
+			}	
+			br1.close();
+			
+			System.out.println(v);
+			primeiro.removeAll(primeiro1);
+			System.out.println(primeiro);
+			System.out.println(primeiro1.size());
+			
+
 //			//System.out.println(test);
 //			number += 1;
 //			padrao = a.createRules(test,2,8,20);
@@ -89,19 +109,19 @@ public class Test {
 				AlgoritmoTrading a = new AlgoritmoTrading(g.getSimbolo());
 				ArrayList<String> padrao = new ArrayList<String>();
 				ArrayList<Double> c = new ArrayList<Double>(g.getAdjclosesReverse());
-				ArrayList<Point2D.Double> test = a.getPIPs(c,8);
+				ArrayList<Point2D.Double> test = a.getPIPs(c,6);
 				System.out.println(test);
 //				ArrayList<Point2D.Double> pontos = new ArrayList<Point2D.Double>();
 //				for(int j=0;j<c.size();j++){
 //					pontos.add(new Point2D.Double(j,c.get(j)));
 //					}
-				GraphPanel b1 = new GraphPanel();
-				BufferedImage img = b1.createImage(b1.createGui(test));
-				final File f = new File(parent1 ,"SerieTemporal.jpg");
-				ImageIO.write(img, "JPEG", f);
+//				GraphPanel b1 = new GraphPanel();
+//				BufferedImage img = b1.createImage(b1.createGui(test));
+//				final File f = new File(parent1 ,"SerieTemporal.jpg");
+//				ImageIO.write(img, "JPEG", f);
 //				number += 1;
-//				padrao = a.createRules(test,3,9,23);
-//				System.out.println(padrao);
+				padrao = a.createRules(test,3,6,30);
+				System.out.println(padrao);
 //				final File parent = new File("Exemplos/7");
 //				parent.mkdir();
 //				final File someFile = new File(parent , g.getSimbolo() + ".txt");

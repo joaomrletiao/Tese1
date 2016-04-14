@@ -37,14 +37,51 @@ import org.jgap.impl.IntegerGene;
 public class Testar {
 
 	private static ArrayList<GetDados> Dados = new ArrayList<GetDados>();
-	private static final int saida = 4;
-	private static final int acc = 6;
-	private static final int liminf = 6;
-	private static final int limsup = 20;
-	private static final int janela = 40;
-	private static final double dist = 59.5417;
-	private static final int ppis = 7;
-	private static final int regras = 3;
+	private static int saida = 4;
+	private static int acc = 6;
+	private static int liminf = 6;
+	private static int limsup = 20;
+	private static int janela = 40;
+	private static double dist = 59.5417;
+	private static int ppis = 7;
+	private static int regras = 3;
+	private static double saldofinal;
+
+	public static double getSaldofinal() {
+		return saldofinal;
+	}
+
+	public static void setSaida(int saida) {
+		Testar.saida = saida;
+	}
+
+	public static void setAcc(int acc) {
+		Testar.acc = acc;
+	}
+
+	public static void setLiminf(int liminf) {
+		Testar.liminf = liminf;
+	}
+
+	public static void setLimsup(int limsup) {
+		Testar.limsup = limsup;
+	}
+
+	public static void setJanela(int janela) {
+		Testar.janela = janela;
+	}
+
+	public static void setDist(double dist) {
+		Testar.dist = dist;
+	}
+
+	public static void setPpis(int ppis) {
+		Testar.ppis = ppis;
+	}
+
+	public static void setRegras(int regras) {
+		Testar.regras = regras;
+	}
 
 	static int preço=1;
 	static int padrao=1;
@@ -56,17 +93,28 @@ public class Testar {
 	 * @throws WriteException 
 	 * @throws RowsExceededException 
 	 */
-	public static void main(String[] args) throws IOException, ParseException, RowsExceededException, WriteException {
+	public static void main(String[] args, ArrayList<String> pattern,int dias,double tk, double sl, int diaspadrao) throws IOException, ParseException, RowsExceededException, WriteException {
 		// TODO Auto-generated method stub
 		try {
-			FileInputStream fstream = new FileInputStream("txt/All.txt");
+			//FileInputStream fstream = new FileInputStream("txt/All.txt");
+			FileInputStream fstream = new FileInputStream("txt/" + args[0]);
 			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 			String strLine;
 			//Read File Line By Line
 			while ((strLine = br.readLine()) != null)   {
 				//System.out.println(strLine);
-				GregorianCalendar start = new GregorianCalendar(2012,0,1);
-				GregorianCalendar end = new GregorianCalendar(2015,0,1);
+				String[] parts = args[1].split("/");
+				String anoinicio = parts[0]; 
+				String mesinicio = parts[1]; 
+				String diainicio = parts[2];
+				String[] parts1 = args[2].split("/");
+				String anofim = parts1[0]; 
+				String mesfim = parts1[1]; 
+				String diafim = parts1[2];
+				GregorianCalendar start = new GregorianCalendar(Integer.parseInt(anoinicio),Integer.parseInt(mesinicio),Integer.parseInt(diainicio));
+				GregorianCalendar end = new GregorianCalendar(Integer.parseInt(anofim),Integer.parseInt(mesfim),Integer.parseInt(diafim));
+//				GregorianCalendar start = new GregorianCalendar(2012,0,1);
+//				GregorianCalendar end = new GregorianCalendar(2015,0,1);
 				GetDados novosdados = new GetDados(strLine,start,end);
 				novosdados.getData(strLine);
 				Dados.add(novosdados);
@@ -74,58 +122,20 @@ public class Testar {
 			br.close();
 			
 			double saldo = 100000;
-			int sizecromossoma = 23;
-			int ndias = 76;
-			double percentagemtk = 41.02575;
-			double percentagemsl = -8.7182;
+			int sizecromossoma = pattern.size() + 8;
+			int ndias = dias;
+			double percentagemtk = tk;
+			double percentagemsl = sl;
+			int janelapadrao = diaspadrao;
 			double rentabilidade = 0;
 			int noperacoes = 0;
 			int oppositivas = 0 , opnegativas = 0;
 			int mediadias = 0;
 			ArrayList<String> padrao = new ArrayList<String>();
-			int janelapadrao = 42;
-			padrao.add(0,"M");
-			padrao.add(1,"W");
-			padrao.add(2,"R");
-			padrao.add(3,"W");
-			padrao.add(4,"W");
-			padrao.add(5,"C");
-			padrao.add(6,"M");
-			padrao.add(7,"C");
-			padrao.add(8,"H");
-			padrao.add(9,"C");
-			padrao.add(10,"H");
-			padrao.add(11,"H");
-			padrao.add(12,"R");
-			
-			padrao.add(13,"M");
-			padrao.add(14,"H");
-			/*
-			padrao.add(15,"C");
-			padrao.add(16,"C");
-			padrao.add(17,"R");
-			padrao.add(18,"C");
-			padrao.add(19,"R");
-			padrao.add(20,"M");
-			padrao.add(21,"W");
-			padrao.add(22,"M");
-			padrao.add(23,"W");
-			padrao.add(24,"R");
-			padrao.add(25,"M");
-			padrao.add(26,"R");
-			padrao.add(27,"H");
-			padrao.add(28,"M");
-			padrao.add(29,"R");
-			/*
-			/*
-			
-			padrao.add(30,"W");
-			padrao.add(31,"H");
-			padrao.add(32,"W");
-			padrao.add(33,"W");
-			/*
-			padrao.add(34,"M");
-		*/
+			for (int i=0;i<pattern.size();i++){
+				padrao.add(i,pattern.get(i));
+			}
+	System.out.println(saida);
 			LinkedHashMap<String, String> rent = new LinkedHashMap<String,String>();
 			HashMap<GetDados, HashMap<Integer, String>> vendas = new HashMap<GetDados,HashMap<Integer,String>>();
 			HashMap<String, String> portfolio = new HashMap<String,String>();
@@ -134,20 +144,6 @@ public class Testar {
 			String dataactual=null;
 			HashMap<String, Integer> ticker = new HashMap<String,Integer>();
 			HashMap<String, Integer> ticker1 = new HashMap<String,Integer>();
-//			HashMap<String, Integer> ticker2 = new HashMap<String,Integer>();
-//			ticker1.put("AN",778);
-//			ticker.put("NWL",1379);
-//			ticker.put("VMC",543);
-//			ticker.put("GILD",771);
-//			ticker.put("DV",1242);
-//			ticker.put("ZION",701);
-//			saldo = getActivestocks(saldo,venda,portfolio,ticker1,7,7,2012);
-//			vendas = getRentlastyear(ticker1,vendas,7,7,2012);
-//			saldo = getActivestocks(saldo,venda,portfolio,ticker,17,9,2012);
-//			vendas = getRentlastyear(ticker,vendas,17,9,2012);
-//			//saldo = getActivestocks(saldo,venda,portfolio,ticker2,7,7,2012);
-//			//vendas = getRentlastyear(ticker,vendas,7,7,2012);
-			System.out.println(vendas);
 			System.out.println(saldo);
 			System.out.println(portfolio);
 			System.out.println(venda);
@@ -476,7 +472,7 @@ public class Testar {
 				}
 			
 			vendas = updateVendas(vendas,dataactual);
-			rent = getRentdiaria(rent,Dados.get(0).getDates().subList(Dados.get(0).getDates().indexOf("8/10/2013"),Dados.get(0).getDates().size()),vendas,saldo);
+			//rent = getRentdiaria(rent,Dados.get(0).getDates().subList(Dados.get(0).getDates().indexOf("8/10/2013"),Dados.get(0).getDates().size()),vendas,saldo);
 			//getExcel(rent);
 			saldo = updateSaldo(venda,"01/01/2016",saldo);
 			System.out.println("Media de dias dentro do mercado:" + mediadias/noperacoes);
@@ -485,6 +481,7 @@ public class Testar {
 			System.out.println("Nº operações negativas:" + opnegativas);
 			//System.out.println(saldo);
 			System.out.println(((saldo / 100000) - 1.0) * 100);
+			saldofinal = ((saldo / 100000) - 1.0) * 100;
 					
 	}catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
